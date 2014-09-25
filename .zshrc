@@ -7,10 +7,25 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="minimal"
 
+# ssh-add all pem files
+for pem_file (~/.ssh/*.pem); do
+	ssh-add $pem_file > /dev/null 2>&1
+done
+unset pem_file
+
 # aliases
 alias zshconfig="subl ~/.zshrc"
 alias ohmyzsh="subl ~/.oh-my-zsh"
 alias cdwork="cd ~/Workspace"
+alias cdalicecooper="cd ~/workspace/alice-cooper"
+alias fstart="forever start"
+alias fstop="forever stop"
+alias flog="forever logs"
+alias flist="forever list"
+alias fres="forever restart"
+alias fsall="forever stopall"
+alias epm="npm --registry http://registry.npmjs.eu/"
+alias vpm="npm --registry http://registry.viaplay.tv/"
 
 # Editor
 export EDITOR='subl -w'
