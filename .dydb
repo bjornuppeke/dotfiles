@@ -1,0 +1,19 @@
+{
+    "local": {
+        "default": true,
+        "aws": {
+            "sslEnabled": false,
+            "endpoint": "localhost:10001",
+            "accessKeyId": "xxx",
+            "secretAccessKey": "xxx",
+            "region": "xxx"
+        }
+    },
+    "prod": {
+        "aws": {
+            "accessKeyId": "yyy",
+            "secretAccessKey": "yyy",
+            "region": "yyy"
+        }
+    }
+}
