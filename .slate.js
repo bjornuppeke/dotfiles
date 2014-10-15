@@ -69,7 +69,7 @@ var genBrowserHash = function( regex ) {
 			if (title !== undefined && title.match( regex )) {
 				windowObject.doOperation( lapRight );
 			} else {
-				windowObject.doOperation( tboltLeft );
+				windowObject.doOperation( tboltRight );
 			}
 		}],
 		'ignore-fail': true,
@@ -157,9 +157,9 @@ var oneBigMonitorLayout = S.lay('oneBigMonitor', {
 	'WebStorm':			tboltFullHash,
 	'IntelliJ IDEA':	tboltFullHash,
 	'Photoshop':		tboltFullHash,
-	'Google Chrome':	tboltLeftHash,
-	'Firefox':			tboltLeftHash,
-	'Safari':			tboltLeftHash,
+	'Google Chrome':	tboltRightHash,
+	'Firefox':			tboltRightHash,
+	'Safari':			tboltRightHash,
 	'Spotify':			tboltCenterHash,
 	'HipChat':			tboltCenterHash,
 	'Skype':			tboltCenterHash,
