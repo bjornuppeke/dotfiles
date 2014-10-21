@@ -62,10 +62,13 @@ DISABLE_CORRECTION="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source ~/Workspace/bootstrap/host/host-profile.sh
 
 # Customize to your needs...
-export PATH=/bin:/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/usr/local/sbin:/Users/bjornuppeke/bin:$PATH
+export PATH=/bin:/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/usr/local/sbin:/Users/bjornuppeke/bin:$PATH
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### Added by Viaplay Bootstrap
+export VIAPLAY_PROJECT_ROOT=/Users/bjornuppeke/Workspace/vc2
+source /Users/bjornuppeke/Workspace/bootstrap/config/env.sh
