@@ -17,15 +17,12 @@ unset pem_file
 alias zshconfig="subl ~/.zshrc"
 alias ohmyzsh="subl ~/.oh-my-zsh"
 alias cdwork="cd ~/Workspace"
-alias cdalicecooper="cd ~/workspace/alice-cooper"
 alias fstart="forever start"
 alias fstop="forever stop"
 alias flog="forever logs"
 alias flist="forever list"
 alias fres="forever restart"
 alias fsall="forever stopall"
-alias epm="npm --registry http://registry.npmjs.eu/"
-alias vpm="npm --registry http://registry.viaplay.tv/"
 
 # Editor
 export EDITOR='subl -w'
@@ -62,6 +59,7 @@ DISABLE_CORRECTION="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.secretrc
 
 # Customize to your needs...
 export PATH=/bin:/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/usr/local/sbin:/Users/bjornuppeke/bin:$PATH
