@@ -11,7 +11,6 @@ ZSH_THEME="minimal"
 for pem_file (~/.ssh/*.pem); do
 	ssh-add $pem_file > /dev/null 2>&1
 done
-unset pem_file
 
 # aliases
 alias zshconfig="subl ~/.zshrc"
@@ -23,6 +22,16 @@ alias flog="forever logs"
 alias flist="forever list"
 alias fres="forever restart"
 alias fsall="forever stopall"
+
+for i in $HOME/Workspace/* ; do
+	shortname=`basename "$i"`
+	shortname="${shortname/-/}"
+	alias cd"$shortname"="cd \"$i\""
+done
+
+# Don't pollute the global namespace
+unset i
+unset pem_file
 
 # Editor
 export EDITOR='subl -w'
