@@ -131,11 +131,16 @@ var tboltCenterWideHash = {
 	repeat: true
 };
 
+var tboltRightNarrowHash = {
+	operations: [tboltRightNarrow],
+	'ignore-fail': true,
+	repeat: true
+};
+
 // 1 small monitor layout
 var oneSmallMonitorLayout = S.lay('oneSmallMonitor', {
 	'iTerm':			lapFullHash,
 	'Sublime Text 2':	lapFullHash,
-	'WebStorm':			lapFullHash,
 	'IntelliJ IDEA':	lapFullHash,
 	'Photoshop':		lapFullHash,
 	'Google Chrome':	lapFullHash,
@@ -144,28 +149,23 @@ var oneSmallMonitorLayout = S.lay('oneSmallMonitor', {
 	'Spotify':			lapFullHash,
 	'HipChat':			lapCenter,
 	'Skype':			lapCenter,
-	'Mail':				lapFullHash,
 	'Twitter':			lapTwitterHash,
-	'Calendar':			lapFullHash,
 	'Lightroom':		lapFullHash
 });
 
 // 1 big monitor layout
 var oneBigMonitorLayout = S.lay('oneBigMonitor', {
 	'iTerm':			tboltCenterHash,
-	'Sublime Text 2':	tboltLeftHash,
-	'WebStorm':			tboltFullHash,
+	'Sublime Text 2':	tboltRightHash,
 	'IntelliJ IDEA':	tboltFullHash,
 	'Photoshop':		tboltFullHash,
-	'Google Chrome':	tboltRightHash,
-	'Firefox':			tboltRightHash,
-	'Safari':			tboltRightHash,
+	'Google Chrome':	tboltLeftHash,
+	'Firefox':			tboltLeftHash,
+	'Safari':			tboltLeftHash,
 	'Spotify':			tboltCenterHash,
-	'HipChat':			tboltCenterHash,
-	'Skype':			tboltCenterHash,
-	'Mail':				tboltCenterHash,
+	'HipChat':			tboltRightNarrowHash,
+	'Skype':			tboltRightNarrowHash,
 	'Twitter':			tboltRightHash,
-	'Calendar':			tboltCenterHash,
 	'Lightroom':		tboltFullHash
 });
 
@@ -176,15 +176,12 @@ var twoMonitorLayout = S.lay('twoMonitor', {
 	'Safari':			genBrowserHash(/^Facebook/),
 	'iTerm':			lapFullHash,
 	'Sublime Text 2':	tboltLeftWideHash,
-	'WebStorm':			tboltRightWideHash,
 	'IntelliJ IDEA':	tboltRightWideHash,
 	'Photoshop':		tboltFullHash,
 	'Spotify':			lapFullHash,
 	'HipChat':			lapCenter,
 	'Skype':			lapCenter,
-	'Mail':				lapFullHash,
 	'Twitter':			lapTwitterHash,
-	'Calendar':			lapFullHash,
 	'Lightroom':		tboltFullHash
 });
 
