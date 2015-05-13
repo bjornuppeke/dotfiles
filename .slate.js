@@ -8,10 +8,8 @@ S.cfga({
 });
 
 // Monitors
-var monLap = function() {
-	return S.screenCount() === 1 ? '0' : '1';
-};
-var monTbolt = '0';
+var monLap = '0';
+var monTbolt = '1';
 
 // Operations
 var full = S.op('move', {
@@ -22,7 +20,7 @@ var full = S.op('move', {
 });
 
 // Laptop
-var lapFull = full.dup({ screen: monLap() });
+var lapFull = full.dup({ screen: monLap });
 var lapLeft = lapFull.dup({ width: 'screenSizeX/2' });
 var lapRight = lapLeft.dup({ x: 'screenOriginX+(screenSizeX/2)' });
 var lapCenter = lapFull.dup({
@@ -62,6 +60,14 @@ var tboltCenterWide = tboltFull.dup({
 	height: '768'
 });
 
+var tbolt90Top = tboltFull.dup({ height: 'screenSizeY/3' });
+var tbolt90Center = tbolt90Top.dup({ y: 'screenOriginY+(screenSizeY/3)' });
+var tbolt90Bottom = tbolt90Top.dup({ y: 'screenOriginY+(screenSizeY/3*2)' });
+var tbolt90BottomHigh = tboltFull.dup({
+	height: 'screenSizeY/3*2',
+	y: 'screenOriginY+(screenSizeY/3)'
+});
+
 var genBrowserHash = function( regex ) {
 	return {
 		operations: [function( windowObject ) {
@@ -69,7 +75,7 @@ var genBrowserHash = function( regex ) {
 			if (title !== undefined && title.match( regex )) {
 				windowObject.doOperation( lapRight );
 			} else {
-				windowObject.doOperation( tboltRight );
+				windowObject.doOperation( tbolt90Top );
 			}
 		}],
 		'ignore-fail': true,
@@ -137,6 +143,12 @@ var tboltRightNarrowHash = {
 	repeat: true
 };
 
+var tbolt90BottomHighHash = {
+	operations: [tbolt90BottomHigh],
+	'ignore-fail': true,
+	repeat: true
+};
+
 // 1 small monitor layout
 var oneSmallMonitorLayout = S.lay('oneSmallMonitor', {
 	'iTerm':			lapFullHash,
@@ -175,7 +187,7 @@ var twoMonitorLayout = S.lay('twoMonitor', {
 	'Firefox':			genBrowserHash(/^Facebook/),
 	'Safari':			genBrowserHash(/^Facebook/),
 	'iTerm':			lapFullHash,
-	'Sublime Text 2':	tboltLeftWideHash,
+	'Sublime Text 2':	tbolt90BottomHighHash,
 	'IntelliJ IDEA':	tboltRightWideHash,
 	'Photoshop':		tboltFullHash,
 	'Spotify':			lapFullHash,
@@ -227,17 +239,20 @@ S.bnda({
 	'pad+:ctrl':				lapFull,
 
 	// Thunderbolt Location Bindings
+	'pad8:alt':					tbolt90Top,
+	'pad5:alt':					tbolt90Center,
+	'pad2:alt':					tbolt90Bottom,
+	'pad0:alt':					tbolt90BottomHigh,
+
 	'pad7:alt':					tboltLeftWide,
-	'pad8:alt':					tboltCenterWide,
 	'pad9:alt':					tboltRightWide,
 	
 	'pad4:alt':					tboltLeft,
-	'pad5:alt':					tboltCenter,
 	'pad6:alt':					tboltRight,
+
 	'pad+:alt':					tboltFull,
 
 	'pad1:alt':					tboltLeftNarrow,
-	'pad2:alt':					tboltCenterNarrow,
 	'pad3:alt':					tboltRightNarrow,
 	
 	'4:ctrl,alt,cmd':			tboltLeft,
